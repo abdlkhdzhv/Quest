@@ -1,0 +1,17 @@
+.wrapperNav {
+    display: flex;
+    justify-content: center;
+    gap: 200px;
+    align-items: center;
+}
+
+.ulNav {
+    color: white;
+    display: flex;
+    gap: 100px;
+}
+
+.wrapperAvtorize {
+    display: flex;
+    gap: 20px;
+}
