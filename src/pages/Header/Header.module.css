@@ -1,0 +1,11 @@
+.header {
+    background: url(../../assets/image3.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 677px;
+    padding-top: 20px;
+    -webkit-box-shadow: 0px 100px 100px 88px rgba(0, 0, 0, 1) inset;
+    -moz-box-shadow: 0px 100px 100px 88px rgba(0, 0, 0, 1) inset;
+    box-shadow: 0px 100px 100px 88px rgba(0, 0, 0, 1) inset;
+}
