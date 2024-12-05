@@ -6,12 +6,19 @@
   box-sizing: border-box;
 }
 
+.nav {
+  margin-bottom: 200px;
+}
+
 .banner {
+  padding-top: 10px;
   background: url('../assets/img/imageb.png') center/cover no-repeat;
   color: white;
   text-align: center;
-  padding: 188px 20px;
   height: 677px;
+  display: flex;
+  flex-direction: column;
+
 
   h1 {
     font-family: "Roboto", sans-serif;
