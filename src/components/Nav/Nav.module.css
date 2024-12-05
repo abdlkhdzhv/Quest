@@ -5,13 +5,51 @@
     align-items: center;
 }
 
-.ulNav {
+.navigation {
     color: white;
     display: flex;
     gap: 100px;
+    align-items: center;
 }
 
 .wrapperAvtorize {
     display: flex;
     gap: 20px;
 }
+
+.spisok {
+    transform: rotate(180deg);
+}
+
+.spisok:hover {
+    transform: rotate(0deg);
+}
+
+.dropSel {
+    display: none;
+    position: relative;
+    cursor: pointer;
+}
+
+.selectNav:hover .dropSel {
+    display: block;
+    position: absolute;
+    transform: translate(0px, 0px);
+    background-color: none;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dropSel:hover {
+    display: block;
+}
+
+.imgNav {
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+}
+

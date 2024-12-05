@@ -3,19 +3,26 @@ import quest from "../../assets/quest.svg";
 import style from "./Nav.module.css";
 import lupa from "../../assets/лупа.svg";
 import profile from "../../assets/профиль.svg";
+import image from "../../assets/spisok.svg"
 
 export const Nav = () => {
   return (
     <div className={style.wrapperNav}>
-      <div>
+      <div className={style.imgNav}>
         <img src={quest} alt="" />
       </div>
 
       <div>
-        <ul className={style.ulNav}>
+        <ul className={style.navigation}>
           <li>Главная</li>
-          <li>Каталог</li>
-          <li>Подборки квестов</li>
+          <li className={style.selectNav}>
+            Каталог <img src={image} alt="" className={style.spisok} />
+            <ul className={style.dropSel}>
+              <li>Выбор квестов</li>
+              <li>Квесты для компаний</li>
+            </ul>
+          </li>
+          <li>Подборки квествов</li>
           <li>Партнерам</li>
         </ul>
       </div>
