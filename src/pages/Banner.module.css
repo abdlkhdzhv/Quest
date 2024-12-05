@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.banner {
+  background: url('../assets/img/imageb.png') center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 188px 20px;
+  height: 677px;
+
+  h1 {
+    font-family: "Roboto", sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+  }
+
+  p {
+    padding-top: 15px;
+    font-size: 20px;
+    font-family: "Roboto", sans-serif;
+  }
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 60px;
+  flex-wrap: wrap; /* Чтобы элементы не выходили за пределы */
+}
+
+.selectPlayers,
+.inputDate,
+.findButton {
+  font-family: "Roboto", sans-serif;
+  background: none;
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: 400;
+  border-radius: 5px;
+  width: 190px;
+}
+
+.selectPlayers {
+  border: 1px solid #A1FF07;
+  color: white;
+  appearance: none; /* Убираю стандартный стиль стрелки */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 10px) center; /* Добавляю отступ стрелки от правого края */
+  background-size: 20px;
+}
+
+.selectPlayers::-ms-expand {
+  display: none;
+}
+
+.inputDate {
+  border: 1px solid #A1FF07;
+  color: white;
+  /* padding-right: 10px; */
+}
+
+.inputDate::-webkit-calendar-picker-indicator {
+  filter: invert(1); /* Делаю иконку календаря белой */
+}
+
+.findButton {
+  background-color: #7fff00;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.findButton:hover {
+  background-color: #6be000;
+}
+
+/* Медиа-запросы для мобильных и планшетных экранов */
+@media (max-width: 768px) {
+  .banner {
+    padding: 150px 10px;
+    height: 600px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  .filters {
+    margin-top: 40px;
+    gap: 20px;
+  }
+
+  .selectPlayers,
+  .inputDate,
+  .findButton {
+    width: 150px;
+    font-size: 13px;
+  }
+
+  .findButton {
+    width: 150px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner {
+    padding: 120px 10px;
+    height: 500px;
+  }
+
+  h1 {
+    font-size: 25px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  .filters {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .selectPlayers,
+  .inputDate,
+  .findButton {
+    width: 100%;
+    font-size: 12px;
+  }
+
+  .findButton {
+    width: 100%;
+    font-size: 14px;
+  }
+}
