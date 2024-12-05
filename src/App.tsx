@@ -1,12 +1,15 @@
-import './App.css'
-import { Header } from './pages/Header/Header'
+import Banner from "./pages/Banner";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 function App() {
   return (
     <>
-      <Header />
+      <Provider store={store}>
+        <Banner />
+      </Provider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
