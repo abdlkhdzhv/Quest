@@ -12,7 +12,7 @@
 
 .banner {
   padding-top: 10px;
-  background: url('../assets/img/imageb.png') center/cover no-repeat;
+  background: url('../../assets/img/imageb.png') center/cover no-repeat;
   color: white;
   text-align: center;
   height: 677px;
