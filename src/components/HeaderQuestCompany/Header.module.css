@@ -1,0 +1,27 @@
+.header {
+    padding-top: 10px;
+    background-image: url(../../assets/image3.svg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    height: 545px;
+    gap: 40px;
+}
+
+.nav {
+    margin-bottom: 70px;
+}
+
+.headQuest {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.infoQuest {
+    font-size: 20px;
+    line-height: 40px;
+    text-align: center;
+}

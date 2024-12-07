@@ -2,7 +2,8 @@ import quest from "../../assets/quest.svg";
 import style from "./Nav.module.css";
 import lupa from "../../assets/лупа.svg";
 import profile from "../../assets/профиль.svg";
-import image from '../../assets/spisok.svg'
+import image from "../../assets/spisok.svg";
+import { Link } from "react-router-dom";
 
 export const Nav = () => {
   return (
@@ -13,12 +14,18 @@ export const Nav = () => {
 
       <div>
         <ul className={style.ulNav}>
-          <li>Главная</li>
+          <li>
+            <Link to={'/'} className="link">Главная</Link>
+          </li>
           <li className={style.selectNav}>
             Каталог <img src={image} alt="" className={style.spisok} />
             <ul className={style.dropSel}>
-              <li>Выбор квестов</li>
-              <li>Квесты для компаний</li>
+              <li>
+                <Link to={"/choosingQuests"} className="link">Выбор квестов</Link>
+              </li>
+              <li>
+                <Link to={"/questsCompanies"} className="link">Квесты для компаний</Link>
+              </li>
             </ul>
           </li>
           <li>Подборки квествов</li>
