@@ -1,6 +1,7 @@
+// filterSlice.ts
 import { createSlice, PayloadAction, } from '@reduxjs/toolkit';
 
-interface FilterState {
+export interface FilterState {
     questType: string;
     players: string;
     date: string;
