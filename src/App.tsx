@@ -1,18 +1,22 @@
-import Banner from "./pages/Banner";
 import { Provider } from "react-redux";
 import store from "./redux/store";
-import Card from "./components/questList/Card";
-import QuestList from "./components/questList/QuestList";
-import BookingList from "./components/questList/BookingList"
+import  Main  from "./pages/Main";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+// import { QuestsCompanies } from "./pages/QuestsCompanies";
+// import { ChoosingQuests } from "./pages/ChoosingQuests";
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Main />
+  }
+])
 
 function App() {
   return (
     <>
       <Provider store={store}>
-        <Banner />
-        <QuestList />
-        <Card />
-        <BookingList />
+        <RouterProvider router={router} />
       </Provider>
     </>
   );

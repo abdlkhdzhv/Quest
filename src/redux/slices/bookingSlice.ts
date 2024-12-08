@@ -24,3 +24,4 @@ const bookingSlice = createSlice({
 
 export const { addBooking, removeBooking } = bookingSlice.actions;
 export default bookingSlice.reducer;
+
