@@ -1,10 +1,14 @@
+// store.ts
 import { configureStore } from '@reduxjs/toolkit';
-import { filterSlice } from './slices/filterSlice';
-
+import { filterSlice } from '../redux/slices/filterSlice';
+import likeReducer from '../redux/slices/likeSlice';
+import bookingReducer from './slices/bookingSlice';
 
 const store = configureStore({
   reducer: {
     filters: filterSlice.reducer,
+    like: likeReducer,
+    bookings: bookingReducer,
   },
 });
 
