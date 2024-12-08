@@ -1,9 +1,9 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux"; // Импортируем хук useSelector для доступа к состоянию Redux и useDispatch для отправки действий
-import { RootState } from "../redux/store";
-import { setFilter } from "../redux/slices/filterSlice"; // Импортируем тип RootState и экшн setFilter из store
+import { RootState } from "../../redux/store";
+import { setFilter } from "../../redux/slices/filterSlice"; // Импортируем тип RootState и экшн setFilter из store
 import style from "./Banner.module.css";
-import { Nav } from "../components/Nav/Nav";
+import { Nav } from "../../components/Nav/Nav";
 
 const Banner: React.FC = () => {
   // Получаем текущие фильтры из состояния Redux

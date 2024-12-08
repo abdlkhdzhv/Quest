@@ -1,19 +1,58 @@
 .wrapperNav {
-    display: flex;
-    justify-content: center;
-    gap: 200px;
-    align-items: center;
-  }
-  
-  .ulNav {
-    color: white;
-    display: flex;
-    gap: 90px;
-  }
-  
-  .wrapperAvtorize {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-  }
-  
+  display: flex;
+  justify-content: center;
+  gap: 200px;
+  align-items: center;
+}
+
+.ulNav {
+  color: white;
+  display: flex;
+  gap: 90px;
+  cursor: pointer;
+}
+
+.wrapperAvtorize {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.spisok {
+  transform: rotate(180deg);
+}
+
+.spisok:hover {
+  transform: rotate(0deg);
+}
+
+.dropSel {
+  display: none;
+  position: relative;
+}
+
+.selectNav:hover .dropSel {
+  display: block;
+  position: absolute;
+  transform: translate(0px, 0px);
+  background-color: rgba(0, 0, 0, 0.455);
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dropSel:hover {
+  display: block;
+}
+
+.dropSel > li:hover {
+  background-color: rgb(59, 77, 36);
+}
+
+.dropSel > li {
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}

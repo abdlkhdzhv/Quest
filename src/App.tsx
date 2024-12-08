@@ -1,14 +1,22 @@
 import { Provider } from "react-redux";
 import store from "./redux/store";
-import  Main  from "./pages/Main";
+import { Main } from "./pages/Main";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-// import { QuestsCompanies } from "./pages/QuestsCompanies";
-// import { ChoosingQuests } from "./pages/ChoosingQuests";
+import { QuestsCompanies } from "./pages/QuestsCompanies";
+import { ChoosingQuests } from "./pages/ChoosingQuests";
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Main />
+  },
+  {
+    path: '/choosingQuests',
+    element: <ChoosingQuests/>
+  },
+  {
+    path: '/questsCompanies',
+    element: <QuestsCompanies />
   }
 ])
 
