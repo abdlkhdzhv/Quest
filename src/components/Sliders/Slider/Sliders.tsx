@@ -28,12 +28,6 @@ function Sliders() {
           <img src={img3} alt="" />
         </div>
         <div>
-          <img src={img1} alt="" />
-        </div>
-        <div>
-          <img src={img2} alt="" />
-        </div>
-        <div>
           <img src={img3} alt="" />
         </div>
         <div>
@@ -43,7 +37,13 @@ function Sliders() {
           <img src={img2} alt="" />
         </div>
         <div>
+          <img src={img2} alt="" />
+        </div>
+        <div>
           <img src={img3} alt="" />
+        </div>
+        <div>
+          <img src={img1} alt="" />
         </div>
       </Slider>
     </div>

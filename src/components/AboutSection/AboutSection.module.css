@@ -1,0 +1,39 @@
+.wrapSection {
+  background-color: rgba(32, 32, 32, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapHead {
+  width: 620px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  color: white;
+}
+
+.pSection {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.wrapImg {
+  width: 620px;
+  position: relative;
+}
+
+.img2 {
+  width: 335px;
+  height: 448px;
+}
+
+.img3 {
+  width: 257px;
+  height: 311px;
+}
+
+.img1 {
+  width: 461px;
+  height: 227px;
+}
