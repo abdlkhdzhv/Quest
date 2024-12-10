@@ -20,20 +20,26 @@
 
 .wrapImg {
   width: 620px;
-  position: relative;
+  
 }
 
 .img2 {
   width: 335px;
   height: 448px;
+  transform: translate(280px, -150px);
+  z-index: 0;
 }
 
 .img3 {
   width: 257px;
   height: 311px;
+  transform: translate(-300px, -250px);
+
 }
 
 .img1 {
   width: 461px;
   height: 227px;
+  transform: translate(70px, 420px);
+  z-index: 1;
 }

@@ -1,0 +1,54 @@
+.section {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  background-color: #000;
+  height: 500px;
+  gap: 50px;
+  -webkit-box-shadow: 100px -28px 100px 100px rgba(39, 25, 15, 1) inset;
+  -moz-box-shadow: 100px -28px 100px 100px rgba(39, 25, 15, 1) inset;
+  box-shadow: 100px -28px 100px 100px rgba(39, 25, 15, 1) inset;
+}
+
+.content {
+  color: #fff;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.image {
+  width: 50vw;
+  height: 100%;
+  background-image: url(../../assets/footer.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.discount {
+    color: #A1FF07;
+}
+
+.dis {
+    font-size: 48px;
+    text-align: center;
+}
+
+.head {
+    font-size: 64px;
+    text-align: center;
+}
+
+.btn {
+    background-color: #A1FF07;
+    color: black;
+    width: 260px;
+    height: 50px;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
