@@ -56,3 +56,9 @@
   border-radius: 10px;
   cursor: pointer;
 }
+
+.link {
+  text-decoration: none;
+  list-style-type: none;
+  color: white;
+}

@@ -1,0 +1,41 @@
+.wrapSection {
+    background-color: rgba(32, 32, 32, 1);
+    height: 100vh;
+    padding: 10px 0px;
+}
+
+.nameSection { 
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.notQuest {
+    text-align: center;
+    color: white;
+}
+
+.nav {
+    margin-bottom: 300px;
+}
+
+.pQuest {
+    color: white;
+    font-size: 22px;
+}
+
+.questName {
+    color: white;
+}
+
+.cardsBooking {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.booking {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

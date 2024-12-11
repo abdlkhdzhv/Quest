@@ -28,13 +28,15 @@ export const Nav = () => {
               </li>
             </ul>
           </li>
-          <li>Подборки квествов</li>
+          <li>
+            <Link to={'/myQuests'} className={style.link}>Ваши бронирования</Link>
+          </li>
           <li>Партнерам</li>
         </ul>
       </div>
 
       <div className={style.wrapperAvtorize}>
-        <div>
+        <div className={style.cart}>
           <img src={lupa} alt="" />
         </div>
         <div>
