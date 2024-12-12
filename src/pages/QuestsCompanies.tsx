@@ -5,6 +5,7 @@ import Card from "../components/questList/Card";
 import { AboutSection } from '../components/AboutSection/AboutSection';
 import { AboutQuest } from '../components/AboutQuest/AboutQuest';
 import { Footer } from '../components/Footer/Footer';
+import QuestsInPopular from '../components/PopularQuest/QuestsInPopular';
 
 export const QuestsCompanies = () => {
   return (
@@ -13,7 +14,7 @@ export const QuestsCompanies = () => {
         <BodySlider />
         <Card />
         <AboutSection />
-        <Card />
+        <QuestsInPopular />
         <AboutQuest />
         <Footer />
     </div>

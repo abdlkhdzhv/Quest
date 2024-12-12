@@ -40,7 +40,7 @@ export const Nav = () => {
           <img src={lupa} alt="" />
         </div>
         <div>
-          <img src={profile} alt="" />
+          <Link to={'/auth'}><img src={profile} alt="" /></Link>
         </div>
       </div>
     </div>
