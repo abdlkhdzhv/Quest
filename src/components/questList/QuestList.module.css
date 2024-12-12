@@ -14,7 +14,6 @@
   .text {
     text-align: center;
     h2 {
-        font-family: "Roboto", sans-serif;
         color: aliceblue;
         font-size: 32px;
     }
@@ -25,7 +24,6 @@
   }
   
   .button {
-    font-family: "Roboto", sans-serif;
     background: none;
     border: none;
     padding: 10px 20px;

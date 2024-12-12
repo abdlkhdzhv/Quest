@@ -2,14 +2,14 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import { addBooking } from '../../redux/slices/bookingSlice'; // Импортируем действие добавления бронирования
-import styles from './Card.module.css';
-import imageCard from '../../assets/img/imageCard.png';
-import imageCard2 from '../../assets/img/imageCard2.png';
-import imageCard3 from '../../assets/img/imageCard3.png';
+import styles from '../questList/Card.module.css';
+import imageCard from '../../assets/quest4.svg';
+import imageCard2 from '../../assets/quest5.svg';
+import imageCard3 from '../../assets/quest6.svg';
 import { FaHeart, FaMapMarkerAlt, FaUsers, FaStar } from 'react-icons/fa';
 import BookingButton from '../Buttons/Buttons';
 
-const CardComponent = () => {
+const QuestsInPopular = () => {
   const cardImages = [imageCard, imageCard2, imageCard3];
   const dispatch = useDispatch();
 
@@ -122,5 +122,5 @@ const CardComponent = () => {
   );
 };
 
-export default CardComponent;
+export default QuestsInPopular;
 
