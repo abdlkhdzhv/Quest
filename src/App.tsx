@@ -5,8 +5,10 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { QuestsCompanies } from "./pages/QuestsCompanies";
 import { ChoosingQuests } from "./pages/ChoosingQuests";
 import BookingList from "./components/BookingList/BookingList";
-import AuthComponent from "./components/Authorization/AuthComponent";
-import RegisterComponent from "./components/Authorization/RegisterComp.tsx/RegisterComp";
+import AuthComponent from "./components/Authorization/RegisterComp/RegisterComp";
+import RegisterComponent from "./components/Authorization/RegisterComp/RegisterComp";
+import { Cooperation } from "./pages/Cooperation";
+
 
 const router = createBrowserRouter([
   {
@@ -32,6 +34,10 @@ const router = createBrowserRouter([
   {
     path: '/auth',
     element: <AuthComponent />
+  },
+  {
+    path: '/cooperation',
+    element: <Cooperation />
   },
 ])
 

@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./ui.module.css";
-import CardComponent from "../questList/Card";
-import QuestsInPopular from "./QuestsInPopular";
+import CardComponent from "../Card/Card";
+import QuestsInPopular from "../Quest/QuestsInPopular";
 export const PopularQuest = () => {
   return (
     <div className={style.wrapSection}>

@@ -1,5 +1,5 @@
-import Card from "../components/questList/Card";
-import QuestList from "../components/questList/QuestList";
+import Card from "../components/Card/Card";
+import QuestList from "../components/QuestList/QuestList";
 import Banner from "../components/Banner/Banner";
 import { PopularQuest } from "../components/PopularQuest/PopularQuest";
 import { AboutQuest } from "../components/AboutQuest/AboutQuest";

@@ -31,7 +31,9 @@ export const Nav = () => {
           <li>
             <Link to={'/myQuests'} className={style.link}>Ваши бронирования</Link>
           </li>
-          <li>Партнерам</li>
+          <li>
+            <Link to={'/cooperation'} className={style.link}>Партнерам</Link>
+          </li>
         </ul>
       </div>
 
