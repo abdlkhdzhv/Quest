@@ -1,13 +1,15 @@
 import { Provider } from "react-redux";
 import store from "./redux/store";
-import Main from "./pages/Main";
+import Main from "./Pages/Main";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { QuestsCompanies } from "./pages/QuestsCompanies";
-import { ChoosingQuests } from "./pages/ChoosingQuests";
+import { QuestsCompanies } from "./Pages/QuestsCompanies";
+import { ChoosingQuests } from "./Pages/ChoosingQuests";
 import BookingList from "./components/BookingList/BookingList";
-import AuthComponent from "./components/Authorization/RegisterComp/RegisterComp";
 import RegisterComponent from "./components/Authorization/RegisterComp/RegisterComp";
-import { Cooperation } from "./pages/Cooperation";
+import { Cooperation } from "./Pages/Cooperation";
+import { MainAuth } from "./components/Authorization/MainAuth/MainAuth";
+import AuthComponent from "./components/Authorization/Entry/AuthComponent";
+import { Entry } from "./components/Authorization/Entry/Entry";
 
 
 const router = createBrowserRouter([
@@ -33,11 +35,11 @@ const router = createBrowserRouter([
   },
   {
     path: '/auth',
-    element: <AuthComponent />
+    element: <MainAuth />
   },
   {
-    path: '/cooperation',
-    element: <Cooperation />
+    path: '/entry',
+    element: <Entry />
   },
 ])
 

@@ -1,7 +1,7 @@
 // store.ts
 import { configureStore } from '@reduxjs/toolkit';
-import { filterSlice } from '../redux/slices/filterSlice';
-import likeReducer from '../redux/slices/likeSlice';
+import { filterSlice } from './slices/filterSlice';
+import likeReducer from './slices/likeSlice';
 import bookingReducer from './slices/bookingSlice';
 import authReducer from "./slices/authSlice";
 

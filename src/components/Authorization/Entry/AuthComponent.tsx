@@ -27,18 +27,18 @@ const AuthComponent = () => {
         </div>
       ) : (
         <div>
-          <input
+           <input
             type="email"
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
+          /> 
+           <input
             type="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-          />
+          /> 
           <Link to={'/'}><button onClick={handleLogin} disabled={loading}>Login</button></Link>
           <Link to={'/regist'}><button onClick={handleLogout} disabled={loading}>Logout</button></Link>
         </div>
