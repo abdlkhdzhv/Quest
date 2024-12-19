@@ -1,0 +1,45 @@
+.wrapSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(9, 11, 6);
+}
+
+.wrapContent {
+    padding: 20px;
+    height: 340px;
+    width: 360px;
+    background-color: #131313; 
+    color: white;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.head {
+    text-align: center;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.wrapBtns {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.btn {
+    background-color: yellowgreen;
+    width: 100%;
+}
+
+.btn2 {
+    padding: 5px;
+    border-radius: 2px;
+}

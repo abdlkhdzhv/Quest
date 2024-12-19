@@ -47,7 +47,7 @@ const RegisterComponent = () => {
     messageApi.open({
       key,
       type: 'loading',
-      content: 'Loading...',
+      content: 'Загрузка...',
     });
     setTimeout(() => {
       messageApi.open({
@@ -123,12 +123,14 @@ const RegisterComponent = () => {
 
         <span>
         <Link to={"/entry"} className="link">
-        <p className={style.p}>Войти</p>
+        <p className={style.p}>Войти в существующий аккаунт</p>
         </Link><br /><br />
         <Link to={"/"} className="link">
           <p className={style.p}>Вернуться в главное меню</p>
         </Link>
         </span>
+
+        {error && <p style={{ color: "red" }}>{error}</p>}
       </div>
     </div>
   );

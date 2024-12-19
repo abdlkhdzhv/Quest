@@ -6,9 +6,7 @@ import { QuestsCompanies } from "./Pages/QuestsCompanies";
 import { ChoosingQuests } from "./Pages/ChoosingQuests";
 import BookingList from "./components/BookingList/BookingList";
 import RegisterComponent from "./components/Authorization/RegisterComp/RegisterComp";
-import { Cooperation } from "./Pages/Cooperation";
 import { MainAuth } from "./components/Authorization/MainAuth/MainAuth";
-import AuthComponent from "./components/Authorization/Entry/AuthComponent";
 import { Entry } from "./components/Authorization/Entry/Entry";
 
 
