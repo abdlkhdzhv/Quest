@@ -1,4 +1,3 @@
-// likeSlice.ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface LikeState {
@@ -6,7 +5,7 @@ interface LikeState {
 }
 
 const initialState: LikeState = {
-  liked: [false, false, false], // Значение по умолчанию для трёх карточек
+  liked: [false, false, false], 
 };
 
 const likeSlice = createSlice({

@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 import tg from "../../../assets/тгИконка.png";
 import style from './ui.module.css'
@@ -18,12 +17,12 @@ export const MainAuth = () => {
           </li>
           <li>
             <Link to={"/questsCompanies"} className="link">
-              Каталог
+              Квесты для компаний
             </Link>
           </li>
           <li>
-            <Link to={"/cooperation"} className="link">
-              Партнерам
+            <Link to={"/myQuests"} className="link">
+              Бронирования
             </Link>
           </li>
         </ul>

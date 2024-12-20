@@ -1,4 +1,3 @@
-import React from "react";
 import Slider from "react-slick";
 import img1 from "../../../assets/shayt1.svg";
 import img2 from "../../../assets/shayt2.svg";

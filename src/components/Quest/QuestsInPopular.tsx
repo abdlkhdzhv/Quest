@@ -13,51 +13,41 @@ const QuestsInPopular = () => {
   const cardImages = [imageCard, imageCard2, imageCard3];
   const dispatch = useDispatch();
 
-  // Подключаем фильтры из Redux
   const { questType, players, date, time } = useSelector((state: RootState) => state.filters);
 
-  // Инициализация состояния из localStorage для лайков
   const [liked, setLiked] = useState<boolean[]>(
     () => JSON.parse(localStorage.getItem('likedCards') || '[]') || Array(cardImages.length).fill(false)
   );
 
-  // Сохранение состояния лайков в localStorage
   useEffect(() => {
     localStorage.setItem('likedCards', JSON.stringify(liked));
   }, [liked]);
 
-  // Фильтрация карточек
   const filteredCards = cardImages.filter((_, index) => {
-    // Фильтрация по типу квеста
-    if (questType && index !== 0) return false; // Убедитесь, что фильтрация работает, как нужно
 
-    // Фильтрация по количеству игроков
+    if (questType && index !== 0) return false; 
+
     if (players && players !== "1 - 8 человек") return false;
 
-    // Фильтрация по дате
     if (date && date !== "2024-12-07") return false;
 
-    // Фильтрация по времени
     if (time && time !== "12:00") return false;
 
     return true;
   });
 
-  // Логика переключения лайка
   const toggleLike = (index: number) => {
     const newLiked = [...liked];
     newLiked[index] = !newLiked[index];
     setLiked(newLiked);
   };
 
-  // Обработчик для бронирования
   const handleBooking = (questName: string) => {
     const bookingDate = date || "2024-12-07";
     const bookingTime = time || "12:00";
 
     dispatch(addBooking({ questName, date: bookingDate, time: bookingTime }));
 
-    alert(`Бронирование для квеста "${questName}" успешно!`);
   };
 
   return (
@@ -77,7 +67,6 @@ const QuestsInPopular = () => {
             </button>
           </h3>
 
-          {/* Добавление информации под картой */}
           <div className={styles.cardDetails}>
             <div className={styles.cardDetail}>
               <div className={styles.titleContainer}>
@@ -112,7 +101,6 @@ const QuestsInPopular = () => {
             </div>
           </div>
 
-          {/* Добавление кнопки бронирования */}
           <div className={styles.buttonContainer}>
             <BookingButton onClick={() => handleBooking("Гарри и искусство магии")} />
           </div>

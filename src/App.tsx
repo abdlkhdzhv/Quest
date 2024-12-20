@@ -3,21 +3,17 @@ import store from "./redux/store";
 import Main from "./Pages/Main";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { QuestsCompanies } from "./Pages/QuestsCompanies";
-import { ChoosingQuests } from "./Pages/ChoosingQuests";
 import BookingList from "./components/BookingList/BookingList";
 import RegisterComponent from "./components/Authorization/RegisterComp/RegisterComp";
 import { MainAuth } from "./components/Authorization/MainAuth/MainAuth";
 import { Entry } from "./components/Authorization/Entry/Entry";
+import { Account } from "./components/Authorization/Account/Account";
 
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Main />
-  },
-  {
-    path: '/choosingQuests',
-    element: <ChoosingQuests/>
   },
   {
     path: '/questsCompanies',
@@ -38,6 +34,10 @@ const router = createBrowserRouter([
   {
     path: '/entry',
     element: <Entry />
+  },
+  {
+    path: '/account',
+    element: <Account />
   },
 ])
 

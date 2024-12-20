@@ -1,4 +1,3 @@
-import React from "react";
 import image1 from '../../assets/pod1.svg'
 import image2 from '../../assets/pod2.svg'
 import image3 from '../../assets/pod3.svg'

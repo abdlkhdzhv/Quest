@@ -1,4 +1,3 @@
-// store.ts
 import { configureStore } from '@reduxjs/toolkit';
 import { filterSlice } from './slices/filterSlice';
 import likeReducer from './slices/likeSlice';

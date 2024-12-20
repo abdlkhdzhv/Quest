@@ -1,4 +1,3 @@
-// FilterComponent.tsx
 import { useDispatch } from 'react-redux';
 import { setFilter } from '../../redux/slices/filterSlice';
 import { FilterState } from '../../redux/slices/filterSlice'

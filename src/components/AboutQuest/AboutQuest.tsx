@@ -1,4 +1,3 @@
-import React from 'react'
 import style from './AboutQuest.module.css'
 import SliderSolo from '../Sliders/SliderSolo/SliderSolo'
 

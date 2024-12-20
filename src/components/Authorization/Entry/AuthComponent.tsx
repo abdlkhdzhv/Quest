@@ -2,12 +2,13 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser, logoutUser } from "../../../Firebase/authService";
 import { Link } from "react-router-dom";
+import { AppDispatch, RootState } from "../../../redux/store";
 
 const AuthComponent = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const dispatch = useDispatch();
-  const { user, loading, error } = useSelector((state) => state.auth);
+  const dispatch: AppDispatch = useDispatch();
+  const { user, loading, error } = useSelector((state: RootState) => state.auth);
 
   const handleLogin = () => {
     dispatch(loginUser(email, password));

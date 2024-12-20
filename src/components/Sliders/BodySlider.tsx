@@ -1,4 +1,3 @@
-
 import style from "./BodySlider.module.css";
 import Sliders from "./Slider/Sliders";
 

@@ -1,4 +1,3 @@
-import React from 'react'
 import style from './ui.module.css'
 
 export const BtnDiscount = ({ txt }: {txt: string}) => {

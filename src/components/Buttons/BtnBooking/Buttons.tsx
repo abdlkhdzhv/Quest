@@ -1,16 +1,34 @@
-
 import React from "react";
 import style from "./Button.module.css";
+import { Button, Popconfirm, PopconfirmProps, message } from "antd";
 
 interface BookingButtonProps {
-  onClick?: () => void; // Функция для обработки кликов (опционально)
+  onClick?: () => void; 
 }
 
 const BookingButton: React.FC<BookingButtonProps> = ({ onClick }) => {
+
+  const confirm: PopconfirmProps['onConfirm'] = (e) => {
+    console.log(e);
+    message.success('Бронирование успешно завершено!');
+  };
+  
+  const cancel: PopconfirmProps['onCancel'] = (e) => {
+    console.log(e);
+    message.error('Вы отменили действие!');
+  };
+
   return (
-    <button className={style.bookingButton} onClick={onClick}>
-      Бронирование
-    </button>
+    <Popconfirm
+    title="Подтверждение бронирования"
+    description="Вы действительно хотите забронировать этот квест?"
+    onConfirm={confirm}
+    onCancel={cancel}
+    okText="Да"
+    cancelText="Нет"
+  >
+    <Button onClick={onClick} className={style.bookingButton}>Бронирование</Button>
+  </Popconfirm>
   );
 };
 

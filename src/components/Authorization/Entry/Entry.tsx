@@ -1,17 +1,19 @@
-import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser, logoutUser } from "../../../Firebase/authService";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button, Input, Tooltip, message } from "antd";
 import { InfoCircleOutlined, UserOutlined } from "@ant-design/icons";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 import style from "./ui.module.css";
+import { AppDispatch, RootState } from "../../../redux/store";
+import { useState } from "react";
 
 export const Entry = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const dispatch = useDispatch();
-  const { user, loading, error } = useSelector((state) => state.auth);
+  const dispatch: AppDispatch = useDispatch();
+  const { error } = useSelector((state: RootState) => state.auth);
+  const [messageApi, contextHolder] = message.useMessage();
 
   const handleLogin = () => {
     dispatch(loginUser(email, password));
@@ -39,7 +41,6 @@ export const Entry = () => {
     }, 2000);
   };
 
-  const [messageApi, contextHolder] = message.useMessage();
   const key = 'updatable';
 
   const openMessage = () => {
@@ -48,20 +49,37 @@ export const Entry = () => {
       type: 'loading',
       content: 'Выполняется вход...',
     });
-    setTimeout(() => {
+    if(!error){
       messageApi.open({
         key,
         type: 'success',
         content: 'Вы успешно вошли в свой аккаунт!',
         duration: 3,
       });
-    }, 2000);
+    }
+    if(error){
+      messageApi.open({
+        key,
+        type: 'loading',
+        content: 'Неверные данные,проверьте логин или пароль!',
+        duration: 3,
+      });
+    }
   };
+
+  const navigate = useNavigate()
+
+  const entryAccount = () => {
+    setTimeout(() => {navigate('/account')}, 2200)
+  }
 
   const handleClick = () => {
     enterLoading(0);
     handleLogin();
     openMessage()
+    if(!error){
+      entryAccount()
+    }
   };
 
   return (
@@ -102,6 +120,7 @@ export const Entry = () => {
           />
 
           <div className={style.wrapBtns}>
+          {error && <p style={{ color: "red" }}>{error}</p>}
           {contextHolder}
             <Link to={''}>
             <Button
@@ -126,7 +145,7 @@ export const Entry = () => {
 
         <div></div>
 
-        {error && <p style={{ color: "red" }}>{error}</p>}
+        {/* {error && <p style={{ color: "red" }}>{error}</p>} */}
       </div>
     </div>
   );

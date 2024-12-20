@@ -1,18 +1,16 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux"; // Импортируем хук useSelector для доступа к состоянию Redux и useDispatch для отправки действий
+import { useSelector, useDispatch } from "react-redux"; 
 import { RootState } from "../../redux/store";
-import { setFilter } from "../../Redux/slices/filterSlice"; // Импортируем тип RootState и экшн setFilter из store
+import { setFilter } from "../../redux/slices/filterSlice"; 
 import style from "./Banner.module.css";
 import { Nav } from "../../components/Nav/Nav";
 
 const Banner: React.FC = () => {
-  // Получаем текущие фильтры из состояния Redux
-  const filters = useSelector((state: RootState) => state.filters);
-  const dispatch = useDispatch(); // Получаем функцию dispatch для отправки экшенов в Redux
 
-  // Функция для обработки изменений в формах фильтров
+  const filters = useSelector((state: RootState) => state.filters);
+  const dispatch = useDispatch(); 
+
   const handleChange = (key: keyof RootState["filters"], value: string) => {
-    // Отправляем экшен с изменениями фильтров
     dispatch(setFilter({ key, value }));
   };
 
@@ -29,7 +27,6 @@ const Banner: React.FC = () => {
         <br /> информацию о лучших квест-комнатах от разных компаний!
       </p>
       <div className={style.filters}>
-        {/* Фильтр для типа квеста */}
         <select
           className={style.selectPlayers}
           onChange={(e: { target: { value: string } }) =>
@@ -42,7 +39,6 @@ const Banner: React.FC = () => {
           <option value="adventure">Приключения</option>
         </select>
 
-        {/* Фильтр для количества игроков */}
         <select
           className={style.selectPlayers}
           onChange={(e: { target: { value: string } }) =>
@@ -55,7 +51,6 @@ const Banner: React.FC = () => {
           <option value="5-6">5-6</option>
         </select>
 
-        {/* Фильтр для выбора даты */}
         <input
           type="date"
           className={style.inputDate}
@@ -65,7 +60,6 @@ const Banner: React.FC = () => {
           value={filters.date}
         />
 
-        {/* Фильтр для выбора времени */}
         <input
           type="time"
           className={style.inputDate}
@@ -75,7 +69,6 @@ const Banner: React.FC = () => {
           value={filters.time}
         />
 
-        {/* Кнопка для поиска */}
         <button className={style.findButton}>Найти</button>
       </div>
     </div>

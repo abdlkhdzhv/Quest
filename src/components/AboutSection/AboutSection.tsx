@@ -1,4 +1,3 @@
-import React from "react";
 import style from "./AboutSection.module.css";
 import img1 from '../../assets/gorizShayt.svg';
 import img2 from '../../assets/shayt3.svg';

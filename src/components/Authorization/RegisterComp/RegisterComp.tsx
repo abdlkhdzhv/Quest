@@ -1,71 +1,63 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { registerUser } from "../../../Firebase/authService";
-import { Link } from "react-router-dom";
-import { Button, Input, Tooltip, message } from "antd";
+import { Link, useNavigate } from "react-router-dom";
+import { Alert, Button, Input, Tooltip, message } from "antd";
 import { InfoCircleOutlined, UserOutlined } from "@ant-design/icons";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 import style from "./ui.module.css";
+import { RootState, AppDispatch } from "../../../redux/store"
 
 const RegisterComponent = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
-  const dispatch = useDispatch();
-  const { error } = useSelector((state) => state.auth);
+  const [messageApi, contextHolder] = message.useMessage();
+  const dispatch: AppDispatch = useDispatch();
+  const { error, loading } = useSelector((state: RootState) => state.auth);
 
   const handleRegister = () => {
-    if (password !== confirmPassword) {
-      alert("Пароли не совпадают!");
-      return;
-    }
-    dispatch(registerUser(email, password));
-  };
-
-  const [loadings, setLoadings] = useState<boolean[]>([]);
-
-  const enterLoading = (index: number) => {
-    setLoadings((prevLoadings) => {
-      const newLoadings = [...prevLoadings];
-      newLoadings[index] = true;
-      return newLoadings;
-    });
-
-    setTimeout(() => {
-      setLoadings((prevLoadings) => {
-        const newLoadings = [...prevLoadings];
-        newLoadings[index] = false;
-        return newLoadings;
-      });
-    }, 2000);
-  };
-
-  const [messageApi, contextHolder] = message.useMessage();
-  const key = 'updatable';
-
-  const openMessage = () => {
     messageApi.open({
       key,
       type: 'loading',
-      content: 'Загрузка...',
+      content: 'Регистрируем ваши данные...',
     });
-    setTimeout(() => {
-      messageApi.open({
+    if (password !== confirmPassword) {
+      return messageApi.open({
         key,
-        type: 'success',
-        content: 'Регистрация успешно завершена!',
-        duration: 3,
-      });
-    }, 2000);
+        type: 'loading',
+        content: 'Пароли не совпадают!',
+      });;
+    }
+    dispatch(registerUser(email, password));
+    messageApi.open({
+      key,
+      type: 'success',
+      content: 'Регистрация успешно завершена!',
+      duration: 3,
+    });
   };
+
+  const navg = () => {
+    setTimeout(() => {
+      if(!error){
+        navigate('/entry')
+      }
+    }, 1000)
+  }
+
+  const navigate = useNavigate()
+
+  const key = 'updatable';
 
   const handleClick = () => {
     handleRegister();
-    enterLoading(0);
-    openMessage()
+    navg()
   };
 
-  
+  const onClose = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    console.log(e, 'I was closed.');
+  };
 
   return (
     <div className={style.wrapSection}>
@@ -110,11 +102,11 @@ const RegisterComponent = () => {
             onChange={(e) => setConfirmPassword(e.target.value)}
             value={confirmPassword}
           />
-            {contextHolder}
+            {error ? '' : contextHolder}
           <Button
             className={style.btn}
             type="primary"
-            loading={loadings[0]}
+            loading={loading}
             onClick={handleClick}
           >
             Зарегистрироваться
@@ -130,7 +122,13 @@ const RegisterComponent = () => {
         </Link>
         </span>
 
-        {error && <p style={{ color: "red" }}>{error}</p>}
+        {error && <Alert
+      message="Ошибка регистрации!"
+      description={error}
+      type="error"
+      closable
+      onClose={onClose}
+    />}
       </div>
     </div>
   );
