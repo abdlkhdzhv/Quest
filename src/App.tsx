@@ -9,7 +9,7 @@ import { MainAuth } from "./components/Authorization/MainAuth/MainAuth";
 import { Entry } from "./components/Authorization/Entry/Entry";
 import { Account } from "./components/Authorization/Account/Account";
 import QuestCard  from "./components/Card/QuestCard";
-
+import Favorite from "./components/Card/favorite";
 const router = createBrowserRouter([
   {
     path: '/',
@@ -26,6 +26,10 @@ const router = createBrowserRouter([
   {
     path: '/myQuests',
     element: <BookingList />
+  },
+  {
+    path: '/myFavorite',
+    element: <Favorite />
   },
   {
     path: '/regist',
@@ -49,6 +53,7 @@ function App() {
   return (
     <>
       <Provider store={store}>
+
         <RouterProvider router={router} />
       </Provider>
     </>

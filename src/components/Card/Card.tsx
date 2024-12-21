@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 import styles from "./Card.module.css";
 
-import Favorite from "./favorite";
+
 import {  useNavigate } from "react-router-dom";
 
 
@@ -96,7 +96,6 @@ const CardComponent = () => {
           </div>
           </div>
         ))}
-        <Favorite />
       </div>
     </div>
   );
