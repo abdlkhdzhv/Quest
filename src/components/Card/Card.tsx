@@ -1,113 +1,105 @@
-import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../redux/store';
-import { addBooking } from '../../redux/slices/bookingSlice'; // Импортируем действие добавления бронирования
-import styles from './Card.module.css';
-import imageCard from '../../assets/img/imageCard.png';
-import imageCard2 from '../../assets/img/imageCard2.png';
-import imageCard3 from '../../assets/img/imageCard3.png';
-import { FaHeart, FaMapMarkerAlt, FaUsers, FaStar } from 'react-icons/fa';
-import BookingButton from '../Buttons/BtnBooking/Buttons';
+import { useState, useEffect } from "react";
+
+
+import styles from "./Card.module.css";
+
+import Favorite from "./favorite";
+import {  useNavigate } from "react-router-dom";
+
+
+interface Quest {
+  id: number;
+  title: string;
+  image: string;
+  rating: number;
+  address: string;
+  price: string;
+  minAge: number;
+  peopleCount: string;
+}
 
 const CardComponent = () => {
-  const cardImages = [imageCard, imageCard2, imageCard3];
-  const dispatch = useDispatch();
 
-  const { questType, players, date, time } = useSelector((state: RootState) => state.filters);
 
-  const [liked, setLiked] = useState<boolean[]>(
-    () => JSON.parse(localStorage.getItem('likedCards') || '[]') || Array(cardImages.length).fill(false)
-  );
+
+  const [quests, setQuests] = useState<Quest[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+  const [showPopular, setShowPopular] = useState<boolean>(false);
 
   useEffect(() => {
-    localStorage.setItem('likedCards', JSON.stringify(liked));
-  }, [liked]);
+    const fetchQuests = async () => {
+      try {
+        const response = await fetch(
+          "https://6766ac52410f8499965847c7.mockapi.io/api/v1/lists"
+        );
+        if (!response.ok) {
+          throw new Error(`Ошибка загрузки данных: ${response.statusText}`);
+        }
+        const data: Quest[] = await response.json();
+        setQuests(data);
+      } catch (err: unknown) {
+        console.error("Ошибка при загрузке данных:", err);
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError("Неизвестная ошибка");
+        }
+      } finally {
+        setLoading(false);
+      }
+    };
+    
 
-  const filteredCards = cardImages.filter((_, index) => {
+    fetchQuests();
+  }, []);
 
-    if (questType && index !== 0) return false;
 
-    if (players && players !== "1 - 8 человек") return false;
+  const filteredQuests = showPopular
+    ? quests.filter((quest) => quest.rating >= 9.0)
+    : quests;
 
-    if (date && date !== "2024-12-07") return false;
 
-    if (time && time !== "12:00") return false;
 
-    return true;
-  });
+  const navigate = useNavigate();
 
-  const toggleLike = (index: number) => {
-    const newLiked = [...liked];
-    newLiked[index] = !newLiked[index];
-    setLiked(newLiked);
-  };
-
-  const handleBooking = (questName: string) => {
-    const bookingDate = date || "2024-12-07";
-    const bookingTime = time || "12:00";
-
-    dispatch(addBooking({ questName, date: bookingDate, time: bookingTime }));
+  const handleCardClick = (quest: Quest) => {
+    navigate(`/aboutQuest/${quest.id}`, { state: { quest } });
   };
 
   return (
-    <div className={styles.cardContainer}>
-      {filteredCards.map((image, index) => (
-        <div className={styles.card} key={index}>
-          <img src={image} alt={`Картинка ${index + 1}`} className={styles.cardImage} />
-          <h3 className={styles.cardTitle}>
-            16+
-            <button
-              className={styles.heartButton}
-              onClick={() => toggleLike(index)}
-            >
-              <FaHeart
-                className={liked[index] ? styles.heartIconLiked : styles.heartIcon}
-              />
-            </button>
-          </h3>
+    <div className={styles.mainContainer}>
+      <div className={styles.titleButton}>
+        <h1>Квест</h1>
+        <button
+          onClick={() => setShowPopular(!showPopular)}
+          className={styles.toggleButton}
+        >
+          {showPopular ? "Показать все" : "Показать популярные"}
+        </button>
+      </div>
 
-          <div className={styles.cardDetails}>
-            <div className={styles.cardDetail}>
-              <div className={styles.titleContainer}>
-                <span className={styles.eventTitle}>Гарри и искусство магии</span>
+      <div className={styles.cardContainer}>
+        {filteredQuests.map((quest) => (
+          
+          <div className={styles.card} key={quest.id}   onClick={() => handleCardClick(quest)}>
+            <img
+              src={quest.image}
+              alt="Картинка квеста"
+              className={styles.cardImage}
+            />
+            <div className={styles.cardContent}>
+              <div className={styles.title}>
+                <h2>{quest.title}</h2>
+                <h3 className={styles.cardTitle}>{quest.minAge}+</h3>
               </div>
-              <div className={styles.rating}>
-                <FaStar className={styles.starIcon} />
-                <span>9.8</span>
-              </div>
-            </div>
-
-            <div className={styles.cardDetailss}>
-              <div className={styles.cardDetailAd}>
-                <div className={styles.questAddres}>
-                  <FaMapMarkerAlt className={styles.icon} />
-                  <span className={styles.addres}>Переулок Гвардейский, 54а</span>
-                </div>
-              </div>
-
-              <div className={styles.playerInfoContainer}>
-                <div className={styles.gameDetails}>
-                  <div className={styles.playerCount}>
-                    <FaUsers className={styles.icon} />
-                    <span className={styles.numberOfPeople}>1 - 8 человек</span>
-                  </div>
-
-                  <div className={styles.priceDetails}>
-                    <span className={styles.pryce}>От 1 000₽</span>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
-
-          <div className={styles.buttonContainer}>
-            <BookingButton onClick={() => handleBooking("Гарри и искусство магии")} />
           </div>
-        </div>
-      ))}
+        ))}
+        <Favorite />
+      </div>
     </div>
   );
 };
 
 export default CardComponent;
-

@@ -8,7 +8,7 @@ import RegisterComponent from "./components/Authorization/RegisterComp/RegisterC
 import { MainAuth } from "./components/Authorization/MainAuth/MainAuth";
 import { Entry } from "./components/Authorization/Entry/Entry";
 import { Account } from "./components/Authorization/Account/Account";
-
+import QuestCard  from "./components/Card/QuestCard";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +18,10 @@ const router = createBrowserRouter([
   {
     path: '/questsCompanies',
     element: <QuestsCompanies />
+  },
+  {
+    path: '/aboutQuest/:id',
+    element: <QuestCard />
   },
   {
     path: '/myQuests',
