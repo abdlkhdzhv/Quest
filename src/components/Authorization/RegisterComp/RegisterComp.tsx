@@ -27,7 +27,7 @@ const RegisterComponent = () => {
         key,
         type: 'loading',
         content: 'Пароли не совпадают!',
-      });;
+      });
     }
     dispatch(registerUser(email, password));
     messageApi.open({

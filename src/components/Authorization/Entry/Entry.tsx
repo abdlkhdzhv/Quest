@@ -14,6 +14,8 @@ export const Entry = () => {
   const dispatch: AppDispatch = useDispatch();
   const { error } = useSelector((state: RootState) => state.auth);
   const [messageApi, contextHolder] = message.useMessage();
+  const [loadings, setLoadings] = useState<boolean[]>([]);
+  const key = "updatable";
 
   const handleLogin = () => {
     dispatch(loginUser(email, password));
@@ -22,8 +24,6 @@ export const Entry = () => {
   const handleLogout = () => {
     dispatch(logoutUser());
   };
-
-  const [loadings, setLoadings] = useState<boolean[]>([]);
 
   const enterLoading = (index: number) => {
     setLoadings((prevLoadings) => {
@@ -38,48 +38,39 @@ export const Entry = () => {
         newLoadings[index] = false;
         return newLoadings;
       });
-    }, 2000);
+    }, 2000)
   };
-
-  const key = 'updatable';
 
   const openMessage = () => {
     messageApi.open({
       key,
-      type: 'loading',
-      content: 'Выполняется вход...',
+      type: "loading",
+      content: "Выполняется вход...",
     });
-    if(!error){
+    if (!error) {
       messageApi.open({
         key,
-        type: 'success',
-        content: 'Вы успешно вошли в свой аккаунт!',
+        type: "success",
+        content: "Вы успешно вошли в свой аккаунт!",
         duration: 3,
       });
-    }
-    if(error){
+      setTimeout(() => {navigate('/account')}, 3000)
+    } else {
       messageApi.open({
         key,
-        type: 'loading',
-        content: 'Неверные данные,проверьте логин или пароль!',
+        type: "loading",
+        content: "Неверные данные,проверьте логин или пароль!",
         duration: 3,
       });
     }
   };
 
-  const navigate = useNavigate()
-
-  const entryAccount = () => {
-    setTimeout(() => {navigate('/account')}, 2200)
-  }
+  const navigate = useNavigate();
 
   const handleClick = () => {
     enterLoading(0);
     handleLogin();
-    openMessage()
-    if(!error){
-      entryAccount()
-    }
+    openMessage();
   };
 
   return (
@@ -120,17 +111,17 @@ export const Entry = () => {
           />
 
           <div className={style.wrapBtns}>
-          {error && <p style={{ color: "red" }}>{error}</p>}
-          {contextHolder}
-            <Link to={''}>
-            <Button
-              className={style.btn}
-              type="primary"
-              loading={loadings[0]}
-              onClick={handleClick}
-            >
-              Войти
-            </Button>
+            {error && <p style={{ color: "red" }}>{error}</p>}
+            {contextHolder}
+            <Link to={""}>
+              <Button
+                className={style.btn}
+                type="primary"
+                loading={loadings[0]}
+                onClick={handleClick}
+              >
+                Войти
+              </Button>
             </Link>
 
             <span className={style.span}>

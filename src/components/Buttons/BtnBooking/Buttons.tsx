@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 import style from "./Button.module.css";
 import { Button, Popconfirm, PopconfirmProps, message } from "antd";
 
@@ -6,7 +6,7 @@ interface BookingButtonProps {
   onClick?: () => void; 
 }
 
-const BookingButton: React.FC<BookingButtonProps> = ({ onClick }) => {
+const BookingButton: FC<BookingButtonProps> = ({ onClick }) => {
 
   const confirm: PopconfirmProps['onConfirm'] = (e) => {
     console.log(e);
