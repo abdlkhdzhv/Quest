@@ -42,7 +42,7 @@ export const Nav = () => {
             </Link>
           </li>
           {user && (<li>
-            <Link to={"/myQuests"} className={style.link}>
+            <Link to={"/myFavorite"} className={style.link}>
               Избранное
             </Link>
           </li>)}

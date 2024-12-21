@@ -14,7 +14,6 @@ export const QuestsCompanies = () => {
         <BodySlider />
         <Card />
         <AboutSection />
-    
         <AboutQuest />
         <Footer />
     </div>
