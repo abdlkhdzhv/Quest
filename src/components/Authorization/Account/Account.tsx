@@ -24,7 +24,7 @@ export const Account = () => {
       <div className={style.wrapContent}>
         <div className={style.wrapHeader}>
           <div className={style.wrapProfile}>
-            <img src={img} alt="" /> {user.email}
+            <img src={img} alt="" /> {user.displayName}
           </div>
 
           <div className={style.wrapProfile}>
