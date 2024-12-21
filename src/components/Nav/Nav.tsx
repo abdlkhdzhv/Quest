@@ -41,6 +41,11 @@ export const Nav = () => {
               Ваши бронирования
             </Link>
           </li>
+          {user && (<li>
+            <Link to={"/myQuests"} className={style.link}>
+              Избранное
+            </Link>
+          </li>)}
         </ul>
       </div>
 
