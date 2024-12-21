@@ -2,9 +2,22 @@ import quest from "../../assets/quest.svg";
 import style from "./Nav.module.css";
 import lupa from "../../assets/лупа.svg";
 import profile from "../../assets/профиль.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
 
 export const Nav = () => {
+  const { user } = useSelector((state: RootState) => state.auth);
+
+  const nav = useNavigate()
+  const navigate = () => {
+    if(user){
+      nav('/account')
+    }else {
+      nav('/auth')
+    }
+  }
+
   return (
     <div className={style.wrapperNav}>
       <div>
@@ -36,9 +49,7 @@ export const Nav = () => {
           <img src={lupa} alt="" />
         </div>
         <div>
-          <Link to={"/auth"}>
-            <img src={profile} alt="" />
-          </Link>
+            <img src={profile} alt="" onClick={navigate}/>
         </div>
       </div>
     </div>

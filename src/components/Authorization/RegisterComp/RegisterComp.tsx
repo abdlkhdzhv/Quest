@@ -16,12 +16,8 @@ const RegisterComponent = () => {
   const dispatch: AppDispatch = useDispatch();
   const { error, loading } = useSelector((state: RootState) => state.auth);
 
-  const handleRegister = () => {
-    messageApi.open({
-      key,
-      type: 'loading',
-      content: 'Регистрируем ваши данные...',
-    });
+  const handleRegister = async () => {
+    
     if (password !== confirmPassword) {
       return messageApi.open({
         key,
@@ -29,20 +25,32 @@ const RegisterComponent = () => {
         content: 'Пароли не совпадают!',
       });
     }
-    dispatch(registerUser(email, password));
-    messageApi.open({
-      key,
-      type: 'success',
-      content: 'Регистрация успешно завершена!',
-      duration: 3,
-    });
+    const result = await dispatch(registerUser(email, password),);
+
+    console.log(result)
+    if(loading){
+      messageApi.open({
+        key,
+        type: 'loading',
+        content: 'Регистрируем ваши данные...',
+      });
+    }
+    console.log(error)
+
+    if(!error && result){
+      messageApi.open({
+        key,
+        type: 'success',
+        content: 'Регистрация успешно завершена!',
+        duration: 3,
+      });
+      navg()
+    }
   };
 
   const navg = () => {
     setTimeout(() => {
-      if(!error){
         navigate('/entry')
-      }
     }, 1000)
   }
 
@@ -52,7 +60,6 @@ const RegisterComponent = () => {
 
   const handleClick = () => {
     handleRegister();
-    navg()
   };
 
   const onClose = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {

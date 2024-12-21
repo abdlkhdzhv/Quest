@@ -54,7 +54,7 @@ export const Entry = () => {
         content: "Вы успешно вошли в свой аккаунт!",
         duration: 3,
       });
-      setTimeout(() => {navigate('/account')}, 3000)
+      setTimeout(() => {navigate('/account')}, 2000)
     } else {
       messageApi.open({
         key,

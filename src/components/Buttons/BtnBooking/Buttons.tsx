@@ -11,6 +11,7 @@ const BookingButton: FC<BookingButtonProps> = ({ onClick }) => {
   const confirm: PopconfirmProps['onConfirm'] = (e) => {
     console.log(e);
     message.success('Бронирование успешно завершено!');
+    onClick()
   };
   
   const cancel: PopconfirmProps['onCancel'] = (e) => {
@@ -27,7 +28,7 @@ const BookingButton: FC<BookingButtonProps> = ({ onClick }) => {
     okText="Да"
     cancelText="Нет"
   >
-    <Button onClick={onClick} className={style.bookingButton}>Бронирование</Button>
+    <Button className={style.bookingButton}>Бронирование</Button>
   </Popconfirm>
   );
 };

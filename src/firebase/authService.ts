@@ -12,8 +12,10 @@ export const registerUser = (email: string, password: string) => async (dispatch
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       dispatch(setUser(userCredential.user));
+      setError(false)
+      return true
     } catch (error: any) {
-      dispatch(setError(error.message));
+      dispatch(setError(true));
     } finally {
       dispatch(setLoading(false));
     }
@@ -24,8 +26,9 @@ export const loginUser = (email: string, password: string) => async (dispatch: A
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
     dispatch(setUser(userCredential.user));
+    setError(false)
   } catch (error: any) {
-    dispatch(setError(error.message));
+    dispatch(setError(true));
   } finally {
     dispatch(setLoading(false));
   }
@@ -36,8 +39,9 @@ export const logoutUser = () => async (dispatch: AppDispatch) => {
   try {
     await signOut(auth);
     dispatch(logout());
+    setError(false)
   } catch (error: any) {
-    dispatch(setError(error.message));
+    dispatch(setError(true));
   } finally {
     dispatch(setLoading(false));
   }
