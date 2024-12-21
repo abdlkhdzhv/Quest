@@ -3,11 +3,12 @@ import { filterSlice } from './slices/filterSlice';
 import likeReducer from './slices/likeSlice';
 import bookingReducer from './slices/bookingSlice';
 import authReducer from "./slices/authSlice";
-
+import favoriteReducer from "./slices/addFavoriteQuest"
 const store = configureStore({
   reducer: {
     filters: filterSlice.reducer,
     like: likeReducer,
+    favorite: favoriteReducer,
     bookings: bookingReducer,
     auth: authReducer,
   },
